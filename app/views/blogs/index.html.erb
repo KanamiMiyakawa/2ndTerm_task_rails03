@@ -15,9 +15,11 @@
   <tbody>
     <% @blogs.each do |blog| %>
       <tr>
-        <td><%= blog.picture %></td>
+        <% if blog.image.url %>
+          <%= image_tag blog.picture.url %>
+        <% end %>
         <td><%= blog.content %></td>
-        <td><%= blog.user %></td>
+        <td><%= blog.user.name %></td>
         <td><%= link_to 'Show', blog %></td>
         <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
         <td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
