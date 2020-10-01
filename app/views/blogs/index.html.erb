@@ -15,7 +15,7 @@
   <tbody>
     <% @blogs.each do |blog| %>
       <tr>
-        <% if blog.image.url %>
+        <% if blog.picture.url %>
           <%= image_tag blog.picture.url %>
         <% end %>
         <td><%= blog.content %></td>
