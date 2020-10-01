@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   resources :blogs
-  resources :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :users, only: [:new, :create, :show] do
+    member do
+      get :favorites
+    end
+  end
 end
