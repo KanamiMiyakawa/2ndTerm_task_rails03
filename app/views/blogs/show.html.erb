@@ -1,9 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Picture:</strong>
-  <%= @blog.picture %>
-</p>
+<% if @blog.image.url %>
+  <%= image_tag blog.picture.url %>
+<% end %>
 
 <p>
   <strong>Content:</strong>
@@ -12,7 +11,7 @@
 
 <p>
   <strong>User:</strong>
-  <%= @blog.user %>
+  <%= @blog.user.name %>
 </p>
 
 <%= link_to 'Edit', edit_blog_path(@blog) %> |
