@@ -27,7 +27,9 @@
     <div class="field">
       <tr>
         <th><%= form.label :image %></th>
-        <%= image_tag(user.image.url) if user.image && user.image.url %>
+        <% if user.image && user.image.url %>
+          <%= image_tag user.image.url, class: "edit_img" %>
+        <% end %>
         <td><%= form.file_field :image %></td>
         <%= form.hidden_field :image_cache %>
       </tr>

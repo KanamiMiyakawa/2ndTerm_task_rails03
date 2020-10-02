@@ -1,6 +1,15 @@
-<h1>Editing User</h1>
+<main class="container-fluid">
+  <div class="container">
+    <div class="main_row row">
+      <div class="main_wrapper">
+        <div class="user_box_base">
 
-<%= render 'form', user: @user %>
-
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+          <%= render 'form', user: @user %>
+          <div class="edit_back">
+            <%= link_to 'Back', @user %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
