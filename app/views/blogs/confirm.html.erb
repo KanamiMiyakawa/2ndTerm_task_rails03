@@ -4,7 +4,7 @@
       <div class="main_wrapper">
         <div class="box_base">
           <%= form_with(model: @blog, local: true) do |form| %>
-            <%= form.hidden_field :image_cache %>
+            <%= form.hidden_field :picture_cache %>
             <%= form.hidden_field :content %>
             <% if @blog.picture.url && @blog.picture.url %>
               <%= image_tag @blog.picture.url, class: "show_picture" %>

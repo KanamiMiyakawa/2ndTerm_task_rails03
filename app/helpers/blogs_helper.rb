@@ -1,6 +1,6 @@
 module BlogsHelper
-  def choose_new_or_edit
-    if action_name == 'new' || action_name == 'create' || action_name == 'confirm'
+  def choose_index_or_edit
+    if action_name == 'index' || action_name == 'create' || action_name == 'confirm'
       confirm_blogs_path
     elsif action_name == 'edit'
       blog_path
@@ -8,7 +8,7 @@ module BlogsHelper
   end
 
   def submit_button_value
-    if action_name == "index" || 'create' || 'confirm' || 'new'
+    if action_name == "index" || 'create' || 'confirm'
       "確認画面へ"
     elsif action_name == "edit"
       "投稿する"

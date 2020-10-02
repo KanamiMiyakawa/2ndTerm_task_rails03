@@ -5,10 +5,6 @@ class BlogsController < ApplicationController
 
   def index
     @blogs = Blog.all.order("id DESC")
-  end
-
-  def new
-    #ここを削除する際は、@blogをindexにうつし、helperも||newを消す
     @blog = Blog.new
   end
 
@@ -28,7 +24,7 @@ class BlogsController < ApplicationController
     @blogs = Blog.all.order("id DESC")
     @blog = current_user.blogs.build(blog_params)
     if params[:back]
-      render :new
+      render :index
     else
       if @blog.save
         redirect_to @blog, notice: '日記を投稿しました！'
