@@ -9,9 +9,9 @@ module UsersHelper
 
   def user_submit_button_value
     if action_name == 'new' || action_name == 'create'
-      "Create your account!"
+      "Create your account"
     elsif action_name == "edit" || action_name == 'update'
-      "Update your account!"
+      "Update your account"
     end
   end
 end

@@ -1,8 +1,8 @@
 <%= form_with(model: user, local: true, url: user_new_or_edit ) do |form| %>
+
   <% if user.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
+      <h2>登録中に<%= pluralize(user.errors.count, "個") %>のエラーが発生しました</h2>
       <ul>
       <% user.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -11,34 +11,41 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
-  </div>
-
-  <div class="field">
-    <%= image_tag(user.image.url) if user.image && user.image.url %>
-    <%= form.label :image %>
-    <%= form.file_field :image %>
-    <%= form.hidden_field :image_cache %>
-  </div>
-
-  <div class="field">
-    <%= form.label :password %>
-    <%= form.password_field :password %>
-  </div>
-
-  <div class="field">
-    <%= form.label :password_confirmation %>
-    <%= form.password_field :password_confirmation %>
-  </div>
-
-  <div class="actions">
+  <table class="form_table" id="user_table">
+    <div class="field">
+      <tr>
+        <th><%= form.label :name %></th>
+        <td id="user_name_td"><%= form.text_field :name %></td>
+      </tr>
+    </div>
+    <div class="field">
+      <tr>
+        <th><%= form.label :email %></th>
+        <td><%= form.text_field :email %></td>
+      </tr>
+    </div>
+    <div class="field">
+      <tr>
+        <th><%= form.label :image %></th>
+        <%= image_tag(user.image.url) if user.image && user.image.url %>
+        <td><%= form.file_field :image %></td>
+        <%= form.hidden_field :image_cache %>
+      </tr>
+    </div>
+    <div class="field">
+      <tr>
+        <th><%= form.label :password %></th>
+        <td><%= form.password_field :password %></td>
+      </tr>
+    </div>
+    <div class="field">
+      <tr>
+        <th><%= form.label :password_confirmation %></th>
+        <td><%= form.password_field :password_confirmation %></td>
+      </tr>
+    </div>
+  </table>
+  <div class="actions" id="user_table_button">
     <%= form.submit user_submit_button_value %>
   </div>
 <% end %>
