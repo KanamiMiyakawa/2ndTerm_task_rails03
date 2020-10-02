@@ -1,23 +1,30 @@
-<p id="notice"><%= notice %></p>
+<main class="container-fluid">
+  <div class="container">
+    <div class="main_row row">
+      <div class="main_wrapper">
+        <div class="user_box_base">
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
+          <% if @user.image.thumb.url %>
+              <%= image_tag @user.image.thumb.url, class: "user_show_image" %>
+          <% end %>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-
-<% if @user.image.url %>
-  <p>
-    <strong>Image:</strong>
-    <%= image_tag @user.image.url %>
-    <strong>Thumbnail:</strong>
-    <%= image_tag @user.image.thumb.url %>
-  </p>
-<% end %>
-
-<%= link_to 'edit', edit_user_path(current_user.id) %>
-<%= link_to 'logout', session_path(current_user.id), method: :delete %>
+          <div class="name_and_email">
+            <p>
+              <strong>Name:</strong>
+              <%= @user.name %>
+            </p>
+            <p>
+              <strong>Email:</strong>
+              <%= @user.email %>
+            </p>
+          </div>
+          <div class="user_show_bottuns">
+            <%= link_to edit_user_path(current_user.id) do %>
+              <button type="button" class="btn btn-edit">edit</button>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

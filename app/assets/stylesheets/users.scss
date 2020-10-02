@@ -24,7 +24,7 @@
   width: 30%;
 }
 #user_table_button {
-  padding-bottom: 20px;
+  margin-bottom: 20px;
 }
 .signup_button {
   margin-bottom: 15px;
@@ -36,4 +36,26 @@
 .user_show_email {
   font-size: 2rem;
   padding: 30px 0 100px 0;
+}
+.user_show_bottuns {
+  padding-bottom: 20px;
+}
+/*show*/
+.user_show_image {
+  margin: 20px auto;
+  border: solid 1px;
+}
+.name_and_email {
+  padding: 15px 0;
+}
+.user_show_bottuns {
+  margin-bottom: 20px;
+}
+.btn-edit {
+  color: white;
+  background-color: #faa550;
+}
+.btn-edit:hover {
+  color: white;
+  opacity: 0.7;
 }
