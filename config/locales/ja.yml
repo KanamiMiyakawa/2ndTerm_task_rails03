@@ -11,7 +11,7 @@ ja:
       user: ユーザー
     attributes:
       blog:
-        title: タイトル
+        picture: 画像
         content: 本文
         content_or_picture: 本文か画像
       user:

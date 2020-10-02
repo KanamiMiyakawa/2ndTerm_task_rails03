@@ -2,14 +2,19 @@
   height: 60px;
   border-radius: 10px;
   transition: 0.3s;
+  border: solid 2px #929af0;
+  box-shadow: none;
+}
+#new_button_box_superior {
+  box-shadow: 1px 1px 1px #828dcc;
 }
 .new_button_box:hover {
-  background-color: #ffedf0;
+  background-color: #b7d9ff;
   cursor: pointer;
 }
-.new_button_box .bi-pencil-square {
+.new_button_box .bi-card-image {
   display: inline;
-  color: #ff7265;
+  color: #5382f0;
   line-height: 60px;
   font-size: 3rem;
   font-weight: 600px;
