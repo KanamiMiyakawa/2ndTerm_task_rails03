@@ -1,11 +1,22 @@
-<p id="notice"><%= notice %></p>
+<main class="container-fluid">
+  <div class="container">
+    <div class="main_row row">
+      <div class="main_wrapper">
+        <div class="user_box_base">
 
-<%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
-  <%= f.label :email %>
-  <%= f.email_field :email %>
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-  <div class="login_button">
-    <%= f.submit "Log in" %>
+          <h1 class="login_header">Log in</h1>
+          <%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
+            <%= f.label :email %>
+            <%= f.email_field :email %>
+            <%= f.label :password %>
+            <%= f.password_field :password %>
+            <div class="login_button">
+              <%= f.submit "Log in" %>
+            </div>
+          <% end %>
+
+        </div>
+      </div>
+    </div>
   </div>
-<% end %>
+</main>
