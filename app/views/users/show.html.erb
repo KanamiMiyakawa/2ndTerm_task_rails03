@@ -19,4 +19,5 @@
   </p>
 <% end %>
 
+<%= link_to 'edit', edit_user_path(current_user.id) %>
 <%= link_to 'logout', session_path(current_user.id), method: :delete %>

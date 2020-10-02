@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users, only: [:new, :create, :show] do
+  resources :users, only: [:new, :create, :show, :edit, :update] do
     member do
       get :favorites
     end
