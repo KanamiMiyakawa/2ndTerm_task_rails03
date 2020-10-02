@@ -1,18 +1,22 @@
-<p id="notice"><%= notice %></p>
-
-<% if @blog.picture.url %>
-  <%= image_tag @blog.picture.url %>
-<% end %>
-
-<p>
-  <strong>Content:</strong>
-  <%= @blog.content %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @blog.user.name %>
-</p>
-
-<%= link_to 'Edit', edit_blog_path(@blog) %> |
-<%= link_to 'Back', blogs_path %>
+<main class="container-fluid">
+  <div class="container">
+    <div class="main_row row">
+      <div class="main_wrapper">
+        <div class="box_base">
+          <% if @blog.picture.url %>
+            <%= image_tag @blog.picture.url, class: "show_picture" %>
+          <% end %>
+          <div class="blog_content_box confirm_content_box">
+            <p class="blog_content"><%= @blog.content %></p>
+          </div>
+          <div class="show_buttons">
+            <% if @blog.user_id == current_user.id %>
+              <%= link_to '編集', edit_blog_path(@blog), class: "show_edit" %>
+            <% end %>
+            <%= link_to '戻る', blogs_path %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
