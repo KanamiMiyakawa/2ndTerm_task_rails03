@@ -265,15 +265,26 @@
  /*error*/
  .error_box {
   border-style: solid;
-  border-color: #ee849e;
   border-width: medium;
-  background-color: #ffd1d7;
  }
  .error_message_box {
   padding: 15px 0;
   font-weight: 600;
   font-size: 1.8rem;
   color: #51565b;
+ }
+ .error_notice {
+   border-color: #7dcc7f;
+   background-color: #aff3a1;
+ }
+ .error_alert {
+   border-color: #ee849e;
+   background-color: #ffd1d7;
+ }
+ .alert {
+   padding: 0;
+   margin: 0;
+   border: none;
  }
  /*@media*/
  @media (max-width: 991px){

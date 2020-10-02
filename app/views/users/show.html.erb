@@ -18,11 +18,13 @@
               <%= @user.email %>
             </p>
           </div>
-          <div class="user_show_bottuns">
-            <%= link_to edit_user_path(current_user.id) do %>
-              <button type="button" class="btn btn-edit">edit</button>
-            <% end %>
-          </div>
+          <% if current_user.id == @user.id %>
+            <div class="user_show_bottuns">
+              <%= link_to edit_user_path(current_user.id) do %>
+                <button type="button" class="btn btn-edit">edit</button>
+              <% end %>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>

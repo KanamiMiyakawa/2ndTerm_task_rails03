@@ -1,7 +1,7 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user, only: [:index, :show, :new, :edit]
-  before_action :different_user, only: [:edit, :update, :destroy]
+  before_action :blog_different_user, only: [:edit, :update, :destroy]
 
   def index
     @blogs = Blog.all.order("id DESC")
@@ -27,7 +27,7 @@ class BlogsController < ApplicationController
       render :index
     else
       if @blog.save
-        redirect_to @blog, notice: '日記を投稿しました！'
+        redirect_to @blog, notice: '投稿しました！'
       else
         render :new
       end
@@ -36,7 +36,7 @@ class BlogsController < ApplicationController
 
   def update
     if @blog.update(blog_params)
-      redirect_to @blog, notice: '日記を更新しました！'
+      redirect_to @blog, notice: '更新しました！'
     else
       render :edit
     end
@@ -44,7 +44,7 @@ class BlogsController < ApplicationController
 
   def destroy
     @blog.destroy
-    redirect_to blogs_url, notice: '日記を削除しました！'
+    redirect_to blogs_url, alert: '投稿を削除しました！'
   end
 
   private
@@ -57,10 +57,10 @@ class BlogsController < ApplicationController
     params.require(:blog).permit(:content, :picture, :picture_cache, :user_id)
   end
 
-  def different_user
+  def blog_different_user
     @blog = Blog.find(params[:id])
     if current_user.id != @blog.user_id
-      flash[:notice] = "他のユーザーの投稿は編集できません"
+      flash[:alert] = "他のユーザーの投稿は編集できません"
       redirect_to blogs_path
     end
   end

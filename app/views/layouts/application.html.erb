@@ -59,11 +59,21 @@
         <div class="container">
           <div class="main_row row">
             <div class="main_wrapper">
-              <div class="box_base error_box">
-                <div class="error_message_box">
-                  <%= content_tag(:div, value, class: "#{key}") %>
+
+              <% if key == "notice" %>
+                <div class="box_base error_box error_notice">
+                  <div class="error_message_box">
+                    <%= content_tag(:div, value, class: "#{key}") %>
+                  </div>
                 </div>
-              </div>
+              <% elsif key == "alert" %>
+                <div class="box_base error_box error_alert">
+                  <div class="error_message_box">
+                    <%= content_tag(:div, value, class: "#{key}") %>
+                  </div>
+                </div>
+              <% end %>
+
             </div>
           </div>
         </div>

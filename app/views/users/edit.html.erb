@@ -4,6 +4,9 @@
       <div class="main_wrapper">
         <div class="user_box_base">
 
+          <% if @user.errors.any? %>
+            <br>
+          <% end %>
           <%= render 'form', user: @user %>
           <div class="edit_back">
             <%= link_to 'Back', @user %>
