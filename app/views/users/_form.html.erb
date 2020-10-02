@@ -1,4 +1,4 @@
-<%= form_with(model: user, local: true) do |form| %>
+<%= form_with(model: user, local: true, url: user_new_or_edit ) do |form| %>
   <% if user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -25,6 +25,7 @@
     <%= image_tag(user.image.url) if user.image && user.image.url %>
     <%= form.label :image %>
     <%= form.file_field :image %>
+    <%= form.hidden_field :image_cache %>
   </div>
 
   <div class="field">
@@ -38,6 +39,6 @@
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit user_submit_button_value %>
   </div>
 <% end %>
