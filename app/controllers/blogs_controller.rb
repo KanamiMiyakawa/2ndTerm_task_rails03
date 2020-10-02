@@ -8,6 +8,7 @@ class BlogsController < ApplicationController
   end
 
   def new
+    #ここを削除する際は、@blogをindexにうつし、helperも||newを消す
     @blog = Blog.new
   end
 

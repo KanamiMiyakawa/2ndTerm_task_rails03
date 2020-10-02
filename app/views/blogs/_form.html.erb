@@ -1,8 +1,8 @@
-<%= form_with(model: blog, local: true, url: choose_new_or_edit) do |form| %>
+<%= form_with(model: blog, local: true, url: choose_new_or_edit ) do |form| %>
+
   <% if blog.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(blog.errors.count, "error") %> prohibited this blog from being saved:</h2>
-
+      <h2>保存中に<%= pluralize(blog.errors.count, "個") %>のエラーが発生しました</h2>
       <ul>
       <% blog.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -11,19 +11,23 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :picture %>
-    <%= image_tag(blog.picture.url) if blog.picture && blog.picture.url %>
-    <%= form.file_field :picture %>
-    <%= form.hidden_field :picture_cache %>
-  </div>
-
-  <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content %>
-  </div>
-
+  <table class="form_table">
+    <div class="field">
+      <tr>
+        <th><%= form.label :picture %></th>
+        <%= image_tag(blog.picture.url) if blog.picture && blog.picture.url %>
+        <td><%= form.file_field :picture %></td>
+        <%= form.hidden_field :picture_cache %>
+      </tr>
+    </div>
+    <div class="field">
+      <tr>
+        <th><%= form.label :content %></th>
+        <td><%= form.text_area :content %></td>
+      </tr>
+    </div>
+  </table>
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit submit_button_value %>
   </div>
 <% end %>
