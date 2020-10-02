@@ -1,5 +1,4 @@
 module UsersHelper
-
   def user_new_or_edit
     if action_name == 'new' || action_name == 'create'
       users_path
@@ -15,5 +14,4 @@ module UsersHelper
       "Update your account!"
     end
   end
-
 end
