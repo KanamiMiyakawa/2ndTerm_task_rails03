@@ -1,0 +1,9 @@
+<h1>投稿が完了しました！</h1>
+<h4>name: <%= @blog.user.name %></h4>
+<h4>お問い合わせ内容の確認</h4>
+<% if @blog.picture.url %>
+  <%= image_tag @blog.picture.url %>
+<% end %>
+<% if @blog.content.present? %>
+  <p>content: <%= @blog.content %></p>
+<% end %>
