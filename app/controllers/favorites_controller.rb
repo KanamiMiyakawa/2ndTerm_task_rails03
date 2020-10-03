@@ -7,7 +7,11 @@ class FavoritesController < ApplicationController
 
   def destroy
     favorite = current_user.favorites.find_by(id: params[:id]).destroy
-    redirect_to blogs_url, alert: "#{favorite.blog.user.name}さんの投稿をお気に入り解除しました"
+    if params[:from] == "favorites"
+      redirect_to favorites_user_path(current_user.id), alert: "#{favorite.blog.user.name}さんの投稿をお気に入り解除しました"
+    else
+      redirect_to blogs_url, alert: "#{favorite.blog.user.name}さんの投稿をお気に入り解除しました"
+    end
   end
 
 end
