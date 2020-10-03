@@ -32,7 +32,7 @@ class UsersController < ApplicationController
   end
 
   def favorites
-    @favorite_blogs = @user.favorite_blogs
+    @favorite_blogs = current_user.favorite_blogs.order("id DESC")
   end
 
   private
