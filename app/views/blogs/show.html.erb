@@ -6,15 +6,17 @@
           <% if @blog.picture.url %>
             <%= image_tag @blog.picture.url, class: "show_picture" %>
           <% end %>
-          <div class="blog_content_box confirm_content_box">
-            <p class="blog_content"><%= @blog.content %></p>
-          </div>
+          <% if @blog.content.present? %>
+            <div class="blog_content_box confirm_content_box">
+              <p class="blog_content"><%= @blog.content %></p>
+            </div>
+          <% end %>
 
           <% unless @blog.user_id == current_user.id %>
             <% if @favorite.present? %>
-              <%= link_to 'お気に入り解除する', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %>
+              <%= link_to 'お気に入り解除する', favorite_path(id: @favorite.id), method: :delete, class: 'btn show_fav_del' %>
             <% else %>
-              <%= link_to 'お気に入りする', favorites_path(blog_id: @blog.id), method: :post, class: 'btn btn-primary' %>
+              <%= link_to 'お気に入りする', favorites_path(blog_id: @blog.id), method: :post, class: 'btn show_fav' %>
             <% end %>
           <% end %>
 

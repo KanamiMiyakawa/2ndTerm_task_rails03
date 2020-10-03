@@ -118,6 +118,24 @@
   list-style: none;
   color: red;
 }
+/*favorites*/
+.btn-fav {
+  font-size: 2rem;
+  color: #ff829f;
+  background-color: white;
+  border:none;
+  padding: 1px 3px 0 0;
+}
+.show_fav {
+  color: #f8f8f8;
+  margin: 10px 0 15px 0;
+  background-color: #ff6742;
+}
+.show_fav_del {
+  color: #f8f8f8;
+  margin: 10px 0 15px 0;
+  background-color: #8b82ef;
+}
 /*@media*/
 @media (max-width: 767px){
   .modal-dialog {
