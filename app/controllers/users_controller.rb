@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :favorites]
   before_action :fobid_login_user, only: [:new, :create]
   before_action :authenticate_user, only: [:show, :edit, :update, :favorites]
-  before_action :user_different, only: [:edit, :update]
+  before_action :user_different, only: [:edit, :update, :favorites]
 
   def new
     @user = User.new

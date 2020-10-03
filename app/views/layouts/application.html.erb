@@ -35,6 +35,9 @@
                 <% end %>
               <% end %>
 
+              <%= link_to favorites_user_path(current_user.id) do %>
+                <button type="button" class="btn btn-default navbar-btn">Favorites</button>
+              <% end %>
               <%= link_to blogs_path(current_user.id) do %>
                 <button type="button" class="btn btn-default navbar-btn">Top</button>
               <% end %>
