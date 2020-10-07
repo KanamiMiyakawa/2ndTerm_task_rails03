@@ -32,7 +32,7 @@ class UsersController < ApplicationController
   end
 
   def favorites
-    @favorite_blogs = current_user.favorite_blogs.order("id DESC")
+    @favorite_blogs = current_user.favorite_blogs.eager_load(:favorites).order("favorites.created_at DESC")
   end
 
   private
