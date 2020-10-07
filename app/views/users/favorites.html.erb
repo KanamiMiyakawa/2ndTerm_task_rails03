@@ -16,6 +16,7 @@
 
               <% unless blog.user_id == current_user.id %>
                 <% if current_user.favorites.find_by(blog_id: blog.id).present? %>
+                  <li class="blog_buttons fav_date">登録日 <%= blog.favorites.find_by(user_id: current_user.id).created_at.strftime('%Y/%m/%d %H:%M') %></li>
                   <li class="blog_buttons">
                     <%= link_to favorite_path(id: current_user.favorites.find_by(blog_id: blog.id).id, from: "favorites"), from: "favorites", method: :delete, class: 'btn btn-fav' do %>
                       <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-heart-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
