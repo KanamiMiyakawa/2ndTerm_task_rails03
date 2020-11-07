@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users, only: [:new, :create, :show, :edit, :update] do
+  resources :users, only: [:index, :new, :create, :show, :edit, :update] do
     member do
       get :favorites
     end
@@ -15,6 +15,12 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
 
   resources :favorites, only: [:create, :destroy]
+
+  resources :relationships, only: [:create, :destroy]
+
+  resources :conversations do
+    resources :messages
+  end
 
   mount LetterOpenerWeb::Engine, at: "/letter_opener"
 end

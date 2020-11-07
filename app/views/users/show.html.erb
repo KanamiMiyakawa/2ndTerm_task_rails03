@@ -18,6 +18,29 @@
               <%= @user.email %>
             </p>
           </div>
+
+          <h1>フォロー</h1>
+          <table class="user_index_table">
+            <% @following_users.each do |user| %>
+              <tr class="user_index_tr">
+                <td><%= user.name %></td>
+                <td><%= user.email %></td>
+                <td><%= render 'follow_form', user: user %></td>
+              </tr>
+            <% end %>
+          </table>
+
+          <h1>フォロワー</h1>
+          <table class="user_index_table">
+            <% @followers.each do |user| %>
+              <tr class="user_index_tr">
+                <td><%= user.name %></td>
+                <td><%= user.email %></td>
+                <td><%= render 'follow_form', user: user %></td>
+              </tr>
+            <% end %>
+          </table>
+
           <% if current_user.id == @user.id %>
             <div class="user_show_bottuns">
               <%= link_to edit_user_path(current_user.id) do %>

@@ -4,6 +4,10 @@ class UsersController < ApplicationController
   before_action :authenticate_user, only: [:show, :edit, :update, :favorites]
   before_action :user_different, only: [:edit, :update, :favorites]
 
+  def index
+    @users = User.all
+  end
+
   def new
     @user = User.new
   end
@@ -18,6 +22,8 @@ class UsersController < ApplicationController
   end
 
   def show
+    @following_users = @user.following
+    @followers = @user.followers
   end
 
   def edit
