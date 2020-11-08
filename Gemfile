@@ -14,12 +14,19 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'bcrypt', '3.1.11'
 gem 'letter_opener_web'
+gem 'unicorn'
+gem 'mini_racer', platforms: :ruby
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'dotenv-rails'
   gem 'faker'
+  gem 'capistrano', '3.6.0'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
+  gem 'capistrano3-unicorn'
 end
 group :development do
   gem 'web-console', '>= 3.3.0'
